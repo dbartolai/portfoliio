@@ -1,10 +1,10 @@
 import './About_Me.css'
-import Headshot from '../assets/headshot.jpg'
+import Headshot from '../../public/assets/headshot.jpg'
 import Module from '../Module.jsx'
 import Group from '../Group.jsx'
-import BornToRun from '../assets/bornToRun.jpg'
-import Crash from '../assets/crash.jpg'
-import Wallflowers from '../assets/wallflowers.jpeg'
+import BornToRun from '../../public/assets/bornToRun.jpg'
+import Crash from '../../public/assets/crash.jpg'
+import Wallflowers from '../../public/assets/wallflowers.jpeg'
 
 function WelcomeDescription(){
     return (
