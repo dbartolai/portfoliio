@@ -1,6 +1,6 @@
 {
   "name": "drake-bartolai",
-  "homepage": "https://dbartolai.github.io/portfoliio/",
+  "homepage": "https://drakebartolai.com/",
   "version": "0.0.0",
   "scripts": {
     "build": "vite build",
