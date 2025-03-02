@@ -91,7 +91,7 @@ const commitments_map = {
         'color' : 'green'
     },
     'Tutor' : {
-        'title' : 'Bartolai test Prep',
+        'title' : 'Bartolai Test Prep',
         'subtitle' : 'Private Tutor',
         'description' : <BTP_description />,
         'color' : 'red'

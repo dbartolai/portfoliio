@@ -1,6 +1,6 @@
 {
-  "name": "my-react-app",
-  "private": true,
+  "name": "drake-bartolai",
+  "homepage": "https://dbartolai.github.io/portfoliio/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
