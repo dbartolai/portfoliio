@@ -12,7 +12,7 @@ function WelcomeDescription(){
             <li>I'm Drake, a second year Computer Engineer at UIUC</li>
             <li>Located in Chicago, IL and Urbana, IL</li>
             <li>I tutor, study, play basketball, and write computer programs</li>
-            <li>The ultimate goal is to use my abilities to provide value to my community</li>
+            <li>My goal is to use my abilities to provide value to my community</li>
         </>
     )
 }
