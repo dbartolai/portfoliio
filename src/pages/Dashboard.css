@@ -1,0 +1,67 @@
+.module-purple{
+    width: 40vh;
+    min-width: 35vh;
+    border: 1px solid rgb(107, 94, 225);
+    border-radius: 10px;
+    padding: 20px 40px 20px 40px;
+    background-color: rgb(59, 57, 63);
+    margin-right: 20px;
+}
+
+.module-green{
+    width: 40vh;
+    min-width: 35vh;
+    border: 1px solid rgb(94, 225, 103);
+    border-radius: 10px;
+    padding: 20px 40px 20px 40px;
+    background-color: rgb(58, 63, 57);
+    margin-right: 20px;
+}
+
+.module-orange{
+    width: 40vh;
+    min-width: 35vh;
+    border: 1px solid rgb(225, 159, 94);
+    border-radius: 10px;
+    padding: 20px 40px 20px 40px;
+    background-color: rgb(63, 60, 57);
+    margin-right: 20px;
+}
+
+.module-red{
+    width: 40vh;
+    min-width: 35vh;
+    border: 1px solid rgb(225, 94, 94);
+    border-radius: 10px;
+    padding: 20px 40px 20px 40px;
+    background-color: rgb(63, 57, 57);
+    margin-right: 20px;
+}
+
+.module-blue{
+    width: 40vh;
+    min-width: 35vh;
+    border: 1px solid rgb(94, 135, 225);
+    border-radius: 10px;
+    padding: 20px 40px 20px 40px;
+    background-color: rgb(57, 58, 63);
+    margin-right: 20px;
+}
+
+.module-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.module-group{
+    display: flex;
+    overflow-x:auto; 
+}
+.module-group::-webkit-scrollbar {
+    display: none; 
+  }
+
+.module-group-div{
+    width: 100vh;
+}

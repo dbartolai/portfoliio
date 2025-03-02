@@ -1,0 +1,19 @@
+.headshot{
+    height:30vh;
+    border:3px solid grey;
+    box-shadow: 5px 5px 30px rgb(23, 23, 23);
+    margin-right: 30px;
+}
+
+.about-me-header{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 60px;
+}
+
+li{
+    margin-bottom: 8px;
+}
+.album{
+    height:15vh;
+}
