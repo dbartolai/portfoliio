@@ -52,6 +52,31 @@ function Modeling(){
     )
 }
 
+function Enthusiasm(){
+    return (
+        <>
+            <ul>
+                <li>It can often be difficult to keep people enthusiastic when we are at the beginning of such a long process</li>
+                <li>A lot of people have other commitments or things thye would rather do</li>
+                <li>Even with high enthusiasm, it's very difficult finding times that work for such a large group</li>
+            </ul>
+        </>
+    )
+}
+
+function Understanding(){
+    return (
+        <>
+            <ul>
+                <li>There are people on my team with full stack experience working with Statistics majors who have never programmed before</li>
+                <li>Such a skill gap means I need to spend meetings coaching up the less experienced workers</li>
+                <li>When our meeting times get used up and people don't work from home because we don't have a direction yet, it can be difficult</li>
+                <li>As a result, I have been doing a lot of the backend bootstrapping myself, hoping that a half-baked product will get people interested</li>
+            </ul>
+        </>
+    )
+}
+
 
 const skills_map = {
     'Leadership' : {
@@ -108,6 +133,21 @@ const tech_map = {
     }
 }
 
+const challenge_map = {
+    'Enthusiasm' : {
+        'title' : 'Enthusiasm',
+        'subtitle' : '',
+        'description' : <Enthusiasm />,
+        'color' : 'purple'
+    },
+    'Understanding' : {
+        'title' : 'Undersanding',
+        'subtitle' : '',
+        'description' : <Understanding />,
+        'color' : 'red'
+    }
+}
+
 function SAS(){
     return (
         <>
@@ -116,6 +156,7 @@ function SAS(){
         </div>
         <Group group_title='Skills:' module_map={skills_map}/>
         <Group group_title='Technologies:' module_map={tech_map}/>
+        <Group group_title='Challenges:' module_map={challenge_map}/>
         </>
     )
 }
