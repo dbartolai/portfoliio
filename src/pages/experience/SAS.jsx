@@ -3,61 +3,50 @@ import Group from '../../Group.jsx'
 import InProgress from '../../InProgress.jsx'
 
 
-function UI(){
+function Leadership(){
     return (
         <>
             <ul>
-                <li>Read through nearly 100 pages of information from the research team on over 50 molecules</li>
-                <li>Integrate the key benefits of each molecule into an interactive and pleasant periodic table</li>
-                <li>Our application received tens of thousands of dollars in investment</li>
+                <li>Leading a team of 10 developers interested in Sports Analytics to build out LowStakes</li>
+                <li>Teaching teammates of varying skill levels about the technologies we are using (React, Flask, AWS DynamoDB)</li>
+                <li>Delegate responsibilities accoriding to the strengths of each individual, while still working myself</li>
+                <li>Organizing and running a meeting or two each week through conflicting schedules</li>
             </ul>
         </>
     )
 }
 
-function Startup(){
+function Github(){
     return (
         <>
             <ul>
-                <li>Worked through the startup foundation process with seasoned and tested entrepreneurs in Chicago</li>
-                <li>Sat in on meetings with potential high profile investors</li>
-                <li>Bridged the gap between the founders' ideas and their realization on the internet </li>
+                <li>Taught my teammates of varying skill level about utilizing githubs branching and version control features</li>
+                <li>Handle reviewing and merging of pull requests</li>
+                <li>Ensuring nothing gets broken on the main branch of our codebase</li>
             </ul>
         </>
     )
 }
 
-function Comms(){
+function WebDev(){
     return (
         <>
             <ul>
-                <li>Learned how to explain my technical processes and concepts to the founders</li>
-                <li>Maintained effective and regular communication by scheduling meetings and sending emails</li>
+                <li>Learning web development frameworks at a much deeper level than ever before</li>
+                <li>Understanding how to integrate a frontend and backend through api design</li>
+                <li>Ensuring our work maintains deployability within our budget as we scale</li>
             </ul>
         </>
     )
 }
 
-function Remote(){
+function Modeling(){
     return (
         <>
             <ul>
-                <li>This was my first time working fully remote since online high school, four years earlier</li>
-                <li>I found remote classes very challenging, and I had to work through those challenges again</li>
-                <li>While I believe I could work remotely again if it came to that, I learned that having an in person environment is very uplifting to me</li>
-            </ul>
-        </>
-    )
-}
-
-function Debug(){
-    return (
-        <>
-            <ul>
-                <li>In this position, I was expecting to work entirely with HTML, CSS, and JS, adI had been used to</li>
-                <li>I inherited a Wordpress site from the previous developer, and was forced to make that work with proprietary CSS classes</li>
-                <li>There were many cases where Wordpress would not work with me, and the only solution is customer support</li>
-                <li>From then on, I largely prefer to develop for the web using code. Debugging is far simpler</li>
+                <li>Utilizing Numpy to create linear and logistic regression models</li>
+                <li>In the process of learning about tree-based models to add to our current one</li>
+                <li>Exploring through Jupyter Notebooks how feature engineering and initial conditions can impact accuracy</li>
             </ul>
         </>
     )
@@ -65,51 +54,68 @@ function Debug(){
 
 
 const skills_map = {
-    'UI' : {
-        'title' : 'User Experience',
-        'subtitle' : 'HTML, CSS, JS',
-        'description' : <UI />,
-        'color' : 'red'
+    'Leadership' : {
+        'title' : 'Leadership & Administration',
+        'subtitle' : '',
+        'description' : <Leadership />,
+        'color' : 'purple'
     },
-    'Startup' : {
-        'title' : 'Startup',
-        'subtitle' : 'Foundation & Management',
-        'description' : <Startup />,
+    'Github' : {
+        'title' : 'Github',
+        'subtitle' : '',
+        'description' : <Github />,
         'color' : 'green'
     },
-    'Comms' : {
-        'title' : 'Communication',
-        'subtitle' : 'Email, Zoom, Teams',
-        'description' : <Comms/>,
+    'WebDevelopment' : {
+        'title' : 'Web Development',
+        'subtitle' : '',
+        'description' : <WebDev />,
         'color' : 'orange'
+    },
+    'Predictive Modeling' : {
+        'title' : 'Predictive Modeling',
+        'subtitle' : '',
+        'description' : <Modeling />,
+        'color' : 'red'
     }
 }
 
-const challenges_map = {
-    'Remote' : {
-        'title' : 'Remote Work',
-        'subtitle' : '',
-        'description' : <Remote />,
-        'color' : 'pink'
+
+const tech_map = {
+    'React' : {
+        'title' : 'React.JS',
+        'subtitle' : 'Frontend',
+        'description' : <div />,
+        'color' : 'grey'
     },
-    'Debugging' : {
-        'title' : 'Debugging',
-        'subtitle' : 'Wordpress, HTML, CSS',
-        'description' : <Debug />,
+    'Flask' : {
+        'title' : 'Flask',
+        'subtitle' : 'API',
+        'description' : <div />,
         'color' : 'yellow'
     },
+    'AWS DynamoDB' : {
+        'title' : 'AWS DynamoDB (Python)',
+        'subtitle' : 'Backend',
+        'description' : <div />,
+        'color' : 'blue'
+    },
+    'Numpy' : {
+        'title' : 'Numpy',
+        'subtitle' : 'Model Design',
+        'description' : <div />,
+        'color' : 'pink'
+    }
 }
 
 function SAS(){
     return (
         <>
-        {/* <div className='timeline-div'>
-            <h2 className='timeline'>Software Engineer: April 2024 - August 2024</h2>
+        <div className='timeline-div'>
+            <h2 className='timeline'>Project Lead: February 2025 - Present</h2>
         </div>
         <Group group_title='Skills:' module_map={skills_map}/>
-        <Group group_title='Challenges:' module_map={challenges_map}/> */}
-
-        <InProgress/>
+        <Group group_title='Technologies:' module_map={tech_map}/>
         </>
     )
 }
