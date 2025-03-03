@@ -8,7 +8,14 @@ function Group({group_title, module_map}){
     for (let key in module_map){
         console.log(key)
         module_list.push(
-            <Module module_title={module_map[key]['title']} module_subtitle={module_map[key]['subtitle']} module_description={module_map[key]['description']} module_color={module_map[key]['color']} key={key}/>
+            <Module 
+                module_title={module_map[key]['title']} 
+                module_subtitle={module_map[key]['subtitle']} 
+                module_description={module_map[key]['description']} 
+                module_color={module_map[key]['color']} 
+                key={key}
+                is_song={module_map[key]['is_song']}
+            />
         )
     }
 

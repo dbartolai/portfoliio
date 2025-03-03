@@ -6,8 +6,9 @@
   "scripts": {
     "dev" : "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build && touch ./dist/CNAME && echo 'drakebartolai.com' > ./dist/CNAME",
+    "deploy": "gh-pages -d dist",
+    "clean" : "rm -rf dist"
   },
   "dependencies": {
     "react": "^19.0.0",

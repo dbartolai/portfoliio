@@ -48,7 +48,7 @@ const subject_map = {
     },
     'HS' : {
         'title' : 'High School',
-        'subtitle' : 'HSPT & CPS Selective Enrollment',
+        'subtitle' : 'HSPT & CPS Exams',
         'description' : <HS />,
         'color' : 'purple'
     },

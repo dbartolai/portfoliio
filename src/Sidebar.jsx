@@ -104,7 +104,7 @@ function Social(){
 }
 
 const project_names = ['ClassMate', 'LowStakes']
-const experience = ['Sports Analytics Society', 'Learning Assistant', 'Acannability']
+const experience = ['Sports Analytics Society', 'University of Illinois', 'Acannability']
 const socials = ['Github', 'Linkedin', 'Email']
 const courses = ['CS 225', 'ECE 220', 'MATH 257', 'CS 173']
 

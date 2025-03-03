@@ -61,6 +61,18 @@ function BTP_description(){
     )
 }
 
+function ID_description(){
+    return(
+        <>
+        <ul>
+            <li>I'm thrilled to have accepted a position as Lead Instructor with iDTech this summer</li>
+            <li>I will be working at the Lake Forest College location teaching robotics, leading a team of counselors and campers</li>
+            <li>Teaching has always been incredibly fulfilling to me, and I can't wait for this step in my career</li>
+        </ul>
+        </>
+    )
+}
+
 
 const course_module_map = {
     'CS225' : {
@@ -85,16 +97,25 @@ const course_module_map = {
 
 const commitments_map = {
     'SAS' : {
-        'title' : 'SAS: ',
-        'subtitle' : 'Sports Analytics Society - VP/Project Lead',
+        'title' : 'Sports Analytics Society: ',
+        'subtitle' : 'VP/Project Lead',
         'description' : <SAS_description />,
-        'color' : 'green'
+        'color' : 'yellow',
+        'is_song': false
     },
     'Tutor' : {
         'title' : 'Bartolai Test Prep',
         'subtitle' : 'Private Tutor',
         'description' : <BTP_description />,
-        'color' : 'red'
+        'color' : 'red',
+        'is_song': false
+    },
+    'iDTech' : {
+        'title' : 'iDTech',
+        'subtitle' : 'Lead Instructor',
+        'description' : <ID_description />,
+        'color' : 'green',
+        'is_song': false
     }
 }
 
