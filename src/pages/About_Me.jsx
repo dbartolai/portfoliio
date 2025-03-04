@@ -15,10 +15,11 @@ import Playground from '../assets/Playground.jpg'
 function WelcomeDescription(){
     return (
         <>
-            <li>I'm Drake, a second year Computer Engineer (and aspiring Software Engineer) at UIUC</li>
-            <li>Located in Chicago, IL and Urbana, IL</li>
-            <li>I tutor, study, play basketball, and write computer programs</li>
-            <li>Working to take advantage of my talents and provide value to my community</li>
+            <li>I'm Drake, a second year Computer Engineer at UIUC</li>
+            <li>Based in Chicago, studying in Urbana</li>
+            <li>Long term, I aspire to take advantage of my talents and provide value to my community</li>
+            <li>Aside from my work with computers, I love to study, read, and play basketball</li>
+            <li>I also love a good coffee</li>
             <li>Check out my favorite music and books below</li>
         </>
     )
@@ -48,7 +49,7 @@ const song_list = {
         'title' : 'Two Step',
         'subtitle' : 'Dave Matthews Band',
         'description' : <img src={Crash} className='album'/>,
-        'color' : 'blue',
+        'color' : 'red',
         'is_song' : true
     },
     'One Headlight' : {
@@ -69,7 +70,7 @@ const song_list = {
         'title' : 'You Can Call Me Al',
         'subtitle' : 'Paul Simon',
         'description' : <img src={Graceland} className='album'/>,
-        'color' : 'red',
+        'color' : 'blue',
         'is_song' : true
     }
 }
@@ -86,7 +87,7 @@ const book_list = {
         'title' : '10:04',
         'subtitle' : 'Ben Lerner',
         'description' : <img src={Ten} className='album'/>,
-        'color' : 'grey',
+        'color' : 'yellow',
         'is_song' : true
     },
     'Borrower' : {
