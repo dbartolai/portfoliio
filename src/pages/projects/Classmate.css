@@ -1,0 +1,16 @@
+.github-div{
+    background-color: rgb(72, 72, 72);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    border: 2px solid lightgrey;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.github{
+    text-decoration: none;
+    color: inherit
+}

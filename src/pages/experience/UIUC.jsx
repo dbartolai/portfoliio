@@ -7,7 +7,7 @@ function Physics(){
         <>
             <ul>
                 <li>Teaching is the best way to learn. I learned far more teaching a lab section of Physics than I did in the actual class</li>
-                <li>Helped over 50 students deploy electromagnetic circuits to test pre-provided claims</li>
+                <li>Helped over 50 students deploy electromagnetic circuits to test provided claims</li>
                 <li>Worked with capacitors, inductors, electromagnets, iOLabs, and more during experimentation</li>
             </ul>
         </>
@@ -90,7 +90,7 @@ function UIUC(){
     return (
         <>
         <div className='timeline-div'>
-            <h2 className='timeline'>PHYS 212 Teaching Asst: August 2024 - December 2024</h2>
+            <h2 className='timeline'>PHYS 212 Teaching Assistant: August 2024 - December 2024</h2>
         </div>
         <Group group_title='Skills:' module_map={skills_map}/>
         </>
