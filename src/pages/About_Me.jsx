@@ -8,11 +8,14 @@ import Wallflowers from '../assets/wallflowers.jpeg'
 import Midnight from '../assets/midnight_library.jpeg'
 import Ten from '../assets/1004.jpg'
 import Borrower from '../assets/borrower.jpg'
+import Eagles from '../assets/Eagles.webp'
+import Graceland from '../assets/Graceland.jpeg'
+import Playground from '../assets/Playground.jpg'
 
 function WelcomeDescription(){
     return (
         <>
-            <li>I'm Drake, a second year Computer Engineer at UIUC</li>
+            <li>I'm Drake, a second year Computer Engineer (and aspiring Software Engineer) at UIUC</li>
             <li>Located in Chicago, IL and Urbana, IL</li>
             <li>I tutor, study, play basketball, and write computer programs</li>
             <li>Working to take advantage of my talents and provide value to my community</li>
@@ -45,7 +48,7 @@ const song_list = {
         'title' : 'Two Step',
         'subtitle' : 'Dave Matthews Band',
         'description' : <img src={Crash} className='album'/>,
-        'color' : 'red',
+        'color' : 'blue',
         'is_song' : true
     },
     'One Headlight' : {
@@ -53,6 +56,20 @@ const song_list = {
         'subtitle' : 'The Wallflowers',
         'description' : <img src={Wallflowers} className='album'/>,
         'color' : 'yellow',
+        'is_song' : true
+    },
+    'Lyin\' Eyes' : {
+        'title' : 'Lyin\' Eyes',
+        'subtitle' : 'Eagles',
+        'description' : <img src={Eagles} className='album'/>,
+        'color' : 'green',
+        'is_song' : true
+    },
+    'You Can Call Me Al' : {
+        'title' : 'You Can Call Me Al',
+        'subtitle' : 'Paul Simon',
+        'description' : <img src={Graceland} className='album'/>,
+        'color' : 'red',
         'is_song' : true
     }
 }
@@ -77,6 +94,13 @@ const book_list = {
         'subtitle' : 'Rebecca Makkai',
         'description' : <img src={Borrower} className='album'/>,
         'color' : 'pink',
+        'is_song' : true
+    },
+    'Playground' : {
+        'title' : 'Playground',
+        'subtitle' : 'Richard Powers',
+        'description' : <img src={Playground} className='album'/>,
+        'color' : 'orange',
         'is_song' : true
     }
 }
