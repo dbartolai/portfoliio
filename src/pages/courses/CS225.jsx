@@ -1,5 +1,6 @@
 import Group from '../../Group.jsx'
 import './courses.css'
+import '../experience/Experience.css'
 
 
 
@@ -161,12 +162,15 @@ const skills_map = {
 function CS225(){
     return(
         <>
+         <div className='timeline-div'>
+            <h2 className='timeline'>Data Structures and Algorithms</h2>
+        </div>
         <div className='header'>
             <h1 className='story-header'>Theory vs Practice:</h1>
             <p className='story'>{story}</p>
         </div>
         <Group group_title={'Data Structures:'} module_map={data_map}/>
-        <Group group_title={'Skills'} module_map={skills_map}/>
+        <Group group_title={'Skills:'} module_map={skills_map}/>
         </>
     )
 }
