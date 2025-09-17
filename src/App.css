@@ -13,6 +13,10 @@ html {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
+:root {
+  --nav-height: 72px;
+}
+
 /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
 html::-webkit-scrollbar {
   display: none;
@@ -53,6 +57,9 @@ body::-webkit-scrollbar {
   top: 0;
   left: 0;
   right: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -61,15 +68,23 @@ body::-webkit-scrollbar {
 }
 
 .nav-container {
+  position: relative;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  min-height: var(--nav-height);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .nav-logo {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translate3d(0, -50%, 0);
+  transform-origin: left center;
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
@@ -77,11 +92,34 @@ body::-webkit-scrollbar {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
+}
+
+.nav-logo-hidden {
+  opacity: 0;
+  transform: translate3d(-24px, -50%, 0) scale(0.85);
+  pointer-events: none;
 }
 
 .nav-links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: flex;
   gap: 2rem;
+  width: max-content;
+  transform: translate3d(-50%, -50%, 0);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links-centered {
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.nav-links-right {
+  transform: translate3d(calc(-50% + var(--nav-slide, 0px)), -50%, 0);
 }
 
 .nav-links button {
@@ -150,6 +188,13 @@ body::-webkit-scrollbar {
   background-clip: text;
   line-height: 1.1;
   animation: fadeInUp 0.8s ease-out;
+  transform-origin: top left;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), letter-spacing 0.45s ease;
+}
+
+.hero-name-compact {
+  transform: translate3d(0, -0.5rem, 0) scale(0.62);
+  letter-spacing: 0.12em;
 }
 
 .hero-slogan {

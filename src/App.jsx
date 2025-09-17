@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero')
+  const navContainerRef = useRef(null)
+  const navLinksRef = useRef(null)
+  const [navSlide, setNavSlide] = useState(0)
 
   // Intersection Observer to detect which section is in view
   useEffect(() => {
@@ -30,6 +33,35 @@ function App() {
     }
   }, [])
 
+  const updateNavSlide = useCallback(() => {
+    if (!navContainerRef.current || !navLinksRef.current) return
+
+    const container = navContainerRef.current
+    const links = navLinksRef.current
+    const styles = getComputedStyle(container)
+    const paddingLeft = parseFloat(styles.paddingLeft) || 0
+    const paddingRight = parseFloat(styles.paddingRight) || 0
+    const horizontalPadding = Math.max(paddingLeft, paddingRight)
+    const containerWidth = container.clientWidth
+    const linksWidth = links.clientWidth
+    const slideDistance = containerWidth / 2 - horizontalPadding - linksWidth / 2
+
+    setNavSlide(slideDistance > 0 ? slideDistance : 0)
+  }, [])
+
+  useEffect(() => {
+    updateNavSlide()
+    window.addEventListener('resize', updateNavSlide)
+
+    return () => {
+      window.removeEventListener('resize', updateNavSlide)
+    }
+  }, [updateNavSlide])
+
+  useEffect(() => {
+    updateNavSlide()
+  }, [updateNavSlide, activeSection])
+
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ 
       behavior: 'smooth',
@@ -38,12 +70,18 @@ function App() {
     // Don't manually set activeSection here - let the observer handle it
   }
 
+  const isHeroActive = activeSection === 'hero'
+
   return (
     <>
-      <nav className="navbar">
-        <div className="nav-container">
-          <div className="nav-logo">Drake Bartolai</div>
-          <div className="nav-links">
+      <nav className={`navbar ${isHeroActive ? 'navbar-hero' : 'navbar-scrolled'}`}>
+        <div className="nav-container" ref={navContainerRef}>
+          <div className={`nav-logo ${isHeroActive ? 'nav-logo-hidden' : ''}`}>Drake Bartolai</div>
+          <div
+            className={`nav-links ${isHeroActive ? 'nav-links-centered' : 'nav-links-right'}`}
+            ref={navLinksRef}
+            style={{ '--nav-slide': `${navSlide}px` }}
+          >
             <button onClick={() => scrollToSection('hero')} className={activeSection === 'hero' ? 'active' : ''}>
               Home
             </button>
@@ -68,7 +106,7 @@ function App() {
         <section id="hero" className="hero-section">
           <div className="hero-content">
             <div className="hero-text">
-              <h1 className="hero-name">Drake Bartolai</h1>
+              <h1 className={`hero-name ${isHeroActive ? '' : 'hero-name-compact'}`}>Drake Bartolai</h1>
               <p className="hero-slogan">CompE @ UIUC; Hoeft Tech & Management <br/> Learning & Building Every Day</p>
               <div className="hero-buttons">
                 <button className="btn-primary" onClick={() => scrollToSection('projects')}>
