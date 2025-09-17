@@ -80,7 +80,7 @@ function App() {
               </div>
             </div>
             <div className="hero-image">
-              <img src="/src/assets/headshot.jpg" alt="Drake Bartolai" className="headshot" />
+              <img src="/headshot.jpg" alt="Drake Bartolai" className="headshot" />
             </div>
           </div>
           <div className="hero-scroll-indicator">
@@ -140,7 +140,7 @@ function App() {
                     <span className="tech-tag">OpenAI API</span>
                   </div>
                   <div className="project-links">
-                    <a href="#" className="project-link">Live Demo Coming Soon</a>
+                    <a href="#" className="project-link">Learn More</a>
                   </div>
                 </div>
               </div>
@@ -156,10 +156,11 @@ function App() {
                     <span className="tech-tag">FastAPI</span>
                     <span className="tech-tag">scikit-learn</span>
                     <span className="tech-tag">React.TS</span>
-                    <span className="tech-tag">Vercel & Railway</span>
+                    <span className="tech-tag">Vercel</span>
+                    <span className="tech-tag">Railway</span>
                   </div>
                   <div className="project-links">
-                    <a href="http://sports-analytics-uiuc.vercel.app" className="project-link">Live Demo</a>
+                    <a href="http://sports-analytics-uiuc.vercel.app" className="project-link">Project</a>
                     <a href="https://github.com/dbartolai/sports_analytics_uiuc" className="project-link">GitHub</a>
                   </div>
                 </div>
@@ -178,7 +179,6 @@ function App() {
                     <span className="tech-tag">Tailwind</span>
                   </div>
                   <div className="project-links">
-                    <a href="#" className="project-link">Live Demo</a>
                     <a href="https://github.com/dbartolai/portfoliio" className="project-link">GitHub</a>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ function App() {
         {/* Contact Section */}
         <section id="contact" className="contact-section">
           <div className="container">
-            <h2 className="section-title">Let's Connect</h2>
+            <h2 className="section-title">Contact Me</h2>
             <p className="contact-subtitle">
               I'm always interested in new opportunities and collaborations
             </p>
@@ -286,7 +286,7 @@ function App() {
                 </div>
                 <div className='link-info'>
                   <h3>LinkedIn</h3>
-                  <p>Let's connect </p>
+                  <p>Let's connect</p>
                 </div>
               </a>
 
