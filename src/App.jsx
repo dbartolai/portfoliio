@@ -178,7 +178,7 @@ function App() {
                     <span className="tech-tag">OpenAI API</span>
                   </div>
                   <div className="project-links">
-                    <a href="#" className="project-link">Learn More</a>
+                    <a href="http://classmate.dev" className="project-link">Learn More</a>
                   </div>
                 </div>
               </div>
