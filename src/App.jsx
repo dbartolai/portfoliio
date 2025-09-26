@@ -264,7 +264,7 @@ function App() {
                 <div className="timeline-item">
                   <div className="timeline-marker"></div>
                   <div className="timeline-content">
-                    <h3>Web Developer</h3>
+                    <h3>Web Developement Intern</h3>
                     <h4>Acannability - Chicago, IL</h4>
                     <span className="timeline-date">April 2024 - August 2024</span>
                     <p>Delivered product enhancements for a molecular data platform used by entrepreneurs and investors.</p>
