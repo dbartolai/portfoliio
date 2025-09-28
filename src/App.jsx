@@ -209,14 +209,15 @@ function App() {
                   <img src="/logo.png" alt="Project Portfolio" height={"60%"} />
                 </div>
                 <div className="project-content">
-                  <h3>Portfolio</h3>
-                  <p>Welcome :)</p>
+                  <h3>Blog</h3>
+                  <p>Read my media reviews, business stories, and more at my blog! </p>
                   <div className="project-tech">
                     <span className="tech-tag">React</span>
                     <span className="tech-tag">Vite</span>
                     <span className="tech-tag">Tailwind</span>
                   </div>
                   <div className="project-links">
+                    <a href="/blog" className="project-link">Blog</a>
                     <a href="https://github.com/dbartolai/portfoliio" className="project-link">GitHub</a>
                   </div>
                 </div>

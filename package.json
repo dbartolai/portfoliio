@@ -2,17 +2,20 @@
   "name": "drake-bartolai",
   "homepage": "https://drakebartolai.com/",
   "version": "0.0.0",
-  "type" : "module",
+  "type": "module",
   "scripts": {
-    "dev" : "vite",
+    "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build && touch ./dist/CNAME && echo 'drakebartolai.com' > ./dist/CNAME",
     "deploy": "gh-pages -d dist",
-    "clean" : "rm -rf dist"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.9.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
