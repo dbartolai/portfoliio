@@ -56,7 +56,7 @@ function Blog() {
               : contentWithoutTitle
             
             // Extract slug from filename
-            const slug = filename.replace('.md', '')
+            const slug = filename.replace('.txt', '')
             
             // Handle date - use front matter date or fallback to current date
             let date = new Date().toLocaleDateString()
