@@ -27,7 +27,7 @@ createRoot(document.getElementById('root')).render(
     <RestoreRedirect/>
     <Routes>
     <Route path='/' element={<App/>}/>
-    <Route path="/blog" element={<Blog/>}/>
+    <Route path="/b" element={<Blog/>}/>
     </Routes>
   </BrowserRouter>
   
