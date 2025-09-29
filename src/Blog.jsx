@@ -40,7 +40,7 @@ function Blog() {
       try {
         const posts = await Promise.all(
           blogFiles.map(async (filename) => {
-            const response = await fetch(`https://drakebartolai.com/blog/${filename}`)
+            const response = await fetch(`/blog/${filename}`)
             const content = await response.text()
             
             // Parse front matter
