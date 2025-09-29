@@ -71,7 +71,7 @@ function Blog() {
             return {
               filename,
               slug,
-              title: frontMatter.title || titleMatch?.[1] || filename.replace('.md', ''),
+              title: frontMatter.title || titleMatch?.[1] || filename.replace('.txt', ''),
               preview,
               content: markdownContent,
               date,
