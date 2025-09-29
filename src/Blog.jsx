@@ -9,7 +9,7 @@ function Blog() {
 
   // List of blog post files (you'll need to update this when adding new posts)
   const blogFiles = [
-    'BOOK_LIST.md'
+    'BOOK_LIST'
     // Add more blog post filenames here as you create them
   ]
 
