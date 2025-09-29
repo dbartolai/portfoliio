@@ -38,6 +38,7 @@ function Blog() {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
+
         const posts = await Promise.all(
           blogFiles.map(async (filename) => {
             const response = await fetch(`/blog/${filename}`)
@@ -45,6 +46,12 @@ function Blog() {
             
             // Parse front matter
             const { data: frontMatter, content: markdownContent } = parseFrontMatter(content)
+
+            console.log('Filename:', filename)
+            console.log('Raw content:', content)
+            console.log('Front matter:', frontMatter)
+            console.log('Markdown content:', markdownContent)
+
             
             // Extract title from first h1 (# Title) if not in front matter
             const titleMatch = markdownContent.match(/^#\s+(.+)$/m)
@@ -67,6 +74,11 @@ function Blog() {
                 console.warn(`Invalid date format in ${filename}:`, frontMatter.date)
               }
             }
+
+            
+
+            // Add these debug logs:
+
             
             return {
               filename,
@@ -88,6 +100,8 @@ function Blog() {
         console.error('Error fetching blog posts:', error)
         setLoading(false)
       }
+
+
     }
 
     fetchBlogPosts()
