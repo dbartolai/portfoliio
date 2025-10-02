@@ -76,7 +76,10 @@ function Blog() {
             let date = new Date().toLocaleDateString()
             if (frontMatter.date) {
               try {
-                date = new Date(frontMatter.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})
+                    const [year, month, day] = frontMatter.date.split('-')
+                    const localDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day))
+                    date = localDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})
+
               } catch (e) {
                 console.warn(`Invalid date format in ${filename}:`, frontMatter.date)
               }
@@ -86,7 +89,6 @@ function Blog() {
 
             // Add these debug logs:
 
-            console.log("Preview: ",frontMatter.preview)
 
             
             return {
@@ -149,7 +151,8 @@ function Blog() {
             <header className="blog-post-header">
               <h1 className="blog-post-title">{selectedPost.title}</h1>
               <div className="blog-post-meta">
-                <span className="blog-post-date">{selectedPost.date}</span>
+                <p className="blog-post-date">{selectedPost.date}<br/>{selectedPost.preview}</p> 
+                
               </div>
             </header>
             
