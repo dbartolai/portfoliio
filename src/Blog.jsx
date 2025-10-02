@@ -80,6 +80,8 @@ function Blog() {
 
             // Add these debug logs:
 
+            console.log(preview)
+
             
             return {
               filename,
@@ -158,10 +160,8 @@ function Blog() {
     <div className="blog-container">
       <div className="container">
         <header className="blog-header">
-          <h1 className="section-title">Blog</h1>
-          <p className="blog-subtitle">
-            Thoughts, experiences, and things I'm learning along the way
-          </p>
+          <h1 className="section-title">Welcome to my Blog!</h1>
+
         </header>
 
         {blogPosts.length === 0 ? (
