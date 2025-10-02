@@ -48,20 +48,20 @@ function Blog() {
             // Parse front matter
             const { data: frontMatter, content: markdownContent } = parseFrontMatter(content)
 
-            console.log('URL:', URL)
-            console.log('Raw content:', content)
-            console.log('Front matter:', frontMatter)
-            console.log('Markdown content:', markdownContent)
+            // console.log('URL:', URL)
+            // console.log('Raw content:', content)
+            // console.log('Front matter:', frontMatter)
+            // console.log('Markdown content:', markdownContent)
 
             
             // Extract title from first h1 (# Title) if not in front matter
             const titleMatch = markdownContent.match(/^#\s+(.+)$/m)
             
-            // Extract preview (first 150 characters after title)
-            const contentWithoutTitle = markdownContent.replace(/^#\s+.+$/m, '').trim()
-            const preview = contentWithoutTitle.length > 150 
-              ? contentWithoutTitle.substring(0, 150) + '...'
-              : contentWithoutTitle
+            // // Extract preview (first 150 characters after title)
+            // const contentWithoutTitle = markdownContent.replace(/^#\s+.+$/m, '').trim()
+            // const preview = contentWithoutTitle.length > 150 
+            //   ? contentWithoutTitle.substring(0, 150) + '...'
+            //   : contentWithoutTitle
             
             // Extract slug from filename
             const slug = filename.replace('.txt', '')
@@ -85,7 +85,7 @@ function Blog() {
               filename,
               slug,
               title: frontMatter.title || titleMatch?.[1] || filename.replace('.txt', ''),
-              preview,
+              preview: frontMatter.preview,
               content: markdownContent,
               date,
             }
