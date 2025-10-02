@@ -41,7 +41,7 @@ function Blog() {
 
         const posts = await Promise.all(
           blogFiles.map(async (filename) => {
-            const URL = 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/'+{filename}+'.txt'
+            const URL = 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/'+filename+'.txt'
             const response = await fetch(URL)
             const content = await response.text()
             
