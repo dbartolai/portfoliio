@@ -41,13 +41,14 @@ function Blog() {
 
         const posts = await Promise.all(
           blogFiles.map(async (filename) => {
-            const response = await fetch(`https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/`+{filename}+`.txt`)
+            const URL = 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/'+{filename}+'.txt'
+            const response = await fetch(URL)
             const content = await response.text()
             
             // Parse front matter
             const { data: frontMatter, content: markdownContent } = parseFrontMatter(content)
 
-            console.log('Filename:', filename)
+            console.log('URL:', URL)
             console.log('Raw content:', content)
             console.log('Front matter:', frontMatter)
             console.log('Markdown content:', markdownContent)
