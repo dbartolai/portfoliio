@@ -26,11 +26,17 @@ function Blog() {
 
     // Parse simple YAML-like front matter
     frontMatterText.split('\n').forEach(line => {
-      const match = line.match(/^(\w+):\s*["']?([^"'\n]+)["']?$/)
-      if (match) {
-        data[match[1]] = match[2]
+    const match = line.match(/^(\w+):\s*(.*)$/) // Simplified - captures everything after colon
+    if (match) {
+      let value = match[2].trim()
+      // Remove surrounding quotes if present
+      if ((value.startsWith('"') && value.endsWith('"')) || 
+          (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1)
       }
-    })
+      data[match[1]] = value
+    }
+  })
 
     return { data, content: markdownContent }
   }
@@ -80,7 +86,7 @@ function Blog() {
 
             // Add these debug logs:
 
-            console.log(frontMatter.preview)
+            console.log("Preview: ",frontMatter.preview)
 
             
             return {
