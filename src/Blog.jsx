@@ -80,7 +80,7 @@ function Blog() {
 
             // Add these debug logs:
 
-            console.log(preview)
+            console.log(frontMatter.preview)
 
             
             return {
