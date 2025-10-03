@@ -11,14 +11,10 @@
             "id": "7bd39ae21921b700",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TOO_BUSY.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "TOO_BUSY"
+              "title": "New tab"
             }
           }
         ]
@@ -168,6 +164,7 @@
   "active": "7bd39ae21921b700",
   "lastOpenFiles": [
     "TOO_BUSY.md",
+    "TOO_BUSY.txt",
     "FIRST_POST.md",
     "FIRST_POST.txt",
     "BOOK_LIST.md",

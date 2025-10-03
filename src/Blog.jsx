@@ -9,7 +9,8 @@ function Blog() {
 
   // List of blog post files (you'll need to update this when adding new posts)
   const blogFiles = [
-    'BOOK_LIST'
+    'BOOK_LIST.txt',
+    'TOO_BUSY.md'
     // Add more blog post filenames here as you create them
   ]
 
@@ -47,7 +48,7 @@ function Blog() {
 
         const posts = await Promise.all(
           blogFiles.map(async (filename) => {
-            const URL = 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/'+filename+'.txt'
+            const URL = 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/'+filename
             const response = await fetch(URL)
             const content = await response.text()
             
