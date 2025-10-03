@@ -10,7 +10,6 @@ function Blog() {
   // List of blog post files (you'll need to update this when adding new posts)
   const blogFiles = [
     'BOOK_LIST.txt',
-    'TOO_BUSY.md'
     // Add more blog post filenames here as you create them
   ]
 
