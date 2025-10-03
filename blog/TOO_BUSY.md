@@ -1,6 +1,6 @@
 ---
-title: "\"Sorry, I've just been really busy lately\""
-date: October 2, 2025
+title: "Sorry, I've just been really busy lately"
+date: 2025-10-02
 preview: Everybody's gotten this excuse before. Let's dive deeper into the line we hear everywhere.
 ---
 People are busy, and I'm no exception. Between college courses for my major and minor, sports, reading, club involvement, and my startup, it can be really difficult to find time for myself in a day. This doesn't even take into consideration social obligations with friends and family. There's almost no time to sleep or practice self-care.
