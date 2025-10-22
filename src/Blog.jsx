@@ -102,6 +102,10 @@ function Blog() {
     navigate(`/blog/${slug}`)
   }
 
+  const handleBackClick = () => {
+    navigate(`/`)
+  }
+
   if (loading) {
     return (
       <div className="blog-container">
@@ -130,8 +134,8 @@ function Blog() {
   return (
     <div className="blog-container">
       <div className="container">
-        <button onClick={handleBackToList} className="back-button">
-          ← More Posts
+        <button onClick={handleBackClick} className="back-button">
+          ← Back
         </button>
         <header className="blog-header">
           <h1 className="section-title">Welcome to my Blog!</h1>
