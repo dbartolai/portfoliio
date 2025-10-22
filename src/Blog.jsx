@@ -130,6 +130,9 @@ function Blog() {
   return (
     <div className="blog-container">
       <div className="container">
+        <button onClick={handleBackToList} className="back-button">
+          ← More Posts
+        </button>
         <header className="blog-header">
           <h1 className="section-title">Welcome to my Blog!</h1>
 
