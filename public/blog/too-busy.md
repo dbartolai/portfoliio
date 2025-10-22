@@ -1,5 +1,6 @@
 ---
 title: "Sorry, I've just been really busy lately"
+slug: too-busy
 date: 2025-10-02
 preview: Everybody's gotten this excuse before. Let's dive deeper into the line we hear everywhere.
 ---

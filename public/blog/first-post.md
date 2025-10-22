@@ -1,5 +1,6 @@
 ---
 title: "First Post"
+slug: first-post
 date: 2025-09-28
 ---
 
