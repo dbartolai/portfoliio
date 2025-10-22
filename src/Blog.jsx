@@ -10,9 +10,7 @@ function Blog() {
   const navigate = useNavigate()
 
   const getBlogUrl = (filename) => {
-    const base = import.meta.env.BASE_URL || '/'
-    const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base
-    return `${normalizedBase}/blog/${filename}`
+    return 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/' + filename
   }
 
   // Simple front matter parser for browser
