@@ -5,9 +5,9 @@
     <title>Redirecting...</title>
     <script>
       // Redirect to index.html while saving the path
-      const redirectTo = '/index.html';
+      const redirectTo = '/';
       const fullPath = window.location.pathname + window.location.search + window.location.hash;
-      sessionStorage.setItem('redirectPath', fullPath);
+      sessionStorage.setItem('redirect', fullPath);
       window.location.replace(redirectTo);
     </script>
   </head>

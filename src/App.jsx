@@ -217,7 +217,7 @@ function App() {
                     <span className="tech-tag">Tailwind</span>
                   </div>
                   <div className="project-links">
-                    <a href="/b" className="project-link">Blog</a>
+                    <a href="/blog" className="project-link">Blog</a>
                     <a href="https://github.com/dbartolai/portfoliio" className="project-link">GitHub</a>
                   </div>
                 </div>
