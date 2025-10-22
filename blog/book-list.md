@@ -1,5 +1,6 @@
 ---
 title: Book List
+slug: book-list
 date: 2025-09-28
 preview: Living and breathing list of books I've loved, hated, and everything in between.
 ---
