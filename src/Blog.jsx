@@ -1,22 +1,24 @@
 import { useState, useEffect } from 'react'
-import ReactMarkdown from 'react-markdown'
+import { useNavigate } from 'react-router-dom'
 import './Blog.css'
+import { blogPostsConfig } from './blogPostsConfig'
 
 function Blog() {
   const [blogPosts, setBlogPosts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [selectedPost, setSelectedPost] = useState(null)
+  const [error, setError] = useState(null)
+  const navigate = useNavigate()
 
-  // List of blog post files (you'll need to update this when adding new posts)
-  const blogFiles = [
-    'BOOK_LIST.txt',
-    // Add more blog post filenames here as you create them
-  ]
+  const getBlogUrl = (filename) => {
+    const base = import.meta.env.BASE_URL || '/'
+    const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base
+    return `${normalizedBase}/blog/${filename}`
+  }
 
   // Simple front matter parser for browser
   const parseFrontMatter = (content) => {
     const frontMatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/m)
-    
+
     if (!frontMatterMatch) {
       return { data: {}, content }
     }
@@ -26,17 +28,15 @@ function Blog() {
 
     // Parse simple YAML-like front matter
     frontMatterText.split('\n').forEach(line => {
-    const match = line.match(/^(\w+):\s*(.*)$/) // Simplified - captures everything after colon
-    if (match) {
-      let value = match[2].trim()
-      // Remove surrounding quotes if present
-      if ((value.startsWith('"') && value.endsWith('"')) || 
-          (value.startsWith("'") && value.endsWith("'"))) {
-        value = value.slice(1, -1)
+      const match = line.match(/^(\w+):\s*(.*)$/)
+      if (match) {
+        let value = match[2].trim()
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1)
+        }
+        data[match[1]] = value
       }
-      data[match[1]] = value
-    }
-  })
+    })
 
     return { data, content: markdownContent }
   }
@@ -44,86 +44,64 @@ function Blog() {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-
         const posts = await Promise.all(
-          blogFiles.map(async (filename) => {
-            const URL = 'https://raw.githubusercontent.com/dbartolai/portfoliio/refs/heads/gh-pages/blog/'+filename
-            const response = await fetch(URL)
+          blogPostsConfig.map(async ({ filename, slug }) => {
+            const response = await fetch(getBlogUrl(filename))
+            if (!response.ok) {
+              throw new Error(`Failed to load ${filename}`)
+            }
+
             const content = await response.text()
-            
-            // Parse front matter
-            const { data: frontMatter, content: markdownContent } = parseFrontMatter(content)
+            const { data: frontMatter } = parseFrontMatter(content)
 
-            // console.log('URL:', URL)
-            // console.log('Raw content:', content)
-            // console.log('Front matter:', frontMatter)
-            // console.log('Markdown content:', markdownContent)
+            const isoDate = frontMatter.date
+            let formattedDate = new Date().toLocaleDateString()
 
-            
-            // Extract title from first h1 (# Title) if not in front matter
-            const titleMatch = markdownContent.match(/^#\s+(.+)$/m)
-            
-            // // Extract preview (first 150 characters after title)
-            // const contentWithoutTitle = markdownContent.replace(/^#\s+.+$/m, '').trim()
-            // const preview = contentWithoutTitle.length > 150 
-            //   ? contentWithoutTitle.substring(0, 150) + '...'
-            //   : contentWithoutTitle
-            
-            // Extract slug from filename
-            const slug = filename.replace('.txt', '')
-            
-            // Handle date - use front matter date or fallback to current date
-            let date = new Date().toLocaleDateString()
-            if (frontMatter.date) {
+            if (isoDate) {
               try {
-                    const [year, month, day] = frontMatter.date.split('-')
-                    const localDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day))
-                    date = localDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})
-
+                const [year, month, day] = isoDate.split('-')
+                const localDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day))
+                formattedDate = localDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
               } catch (e) {
-                console.warn(`Invalid date format in ${filename}:`, frontMatter.date)
+                console.warn(`Invalid date format in ${filename}:`, isoDate)
               }
             }
 
-            
-
-            // Add these debug logs:
-
-
-            
             return {
               filename,
-              slug,
-              title: frontMatter.title || titleMatch?.[1] || filename.replace('.txt', ''),
-              preview: frontMatter.preview,
-              content: markdownContent,
-              date,
+              slug: frontMatter.slug || slug || filename.replace(/\.md$/, ''),
+              title: frontMatter.title || filename.replace(/\.md$/, ''),
+              preview: frontMatter.preview || '',
+              date: formattedDate,
+              rawDate: isoDate || null
             }
           })
         )
-        
-        // Sort posts by date (newest first)
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date))
-        
+
+        posts.sort((a, b) => {
+          if (a.rawDate && b.rawDate) {
+            return new Date(b.rawDate) - new Date(a.rawDate)
+          }
+          if (a.rawDate) return -1
+          if (b.rawDate) return 1
+          return 0
+        })
+
         setBlogPosts(posts)
-        setLoading(false)
       } catch (error) {
         console.error('Error fetching blog posts:', error)
-        setLoading(false)
+        setError('Unable to load blog posts right now. Please try again later.')
       }
-
-
     }
 
     fetchBlogPosts()
+      .finally(() => {
+        setLoading(false)
+      })
   }, [])
 
-  const handlePostClick = (post) => {
-    setSelectedPost(post)
-  }
-
-  const handleBackToList = () => {
-    setSelectedPost(null)
+  const handlePostClick = (slug) => {
+    navigate(`/blog/${slug}`)
   }
 
   if (loading) {
@@ -139,27 +117,13 @@ function Blog() {
     )
   }
 
-  if (selectedPost) {
+  if (error) {
     return (
       <div className="blog-container">
         <div className="container">
-          <button onClick={handleBackToList} className="back-button">
-            ← More Posts
-          </button>
-          
-          <article className="blog-post-full">
-            <header className="blog-post-header">
-              <h1 className="blog-post-title">{selectedPost.title}</h1>
-              <div className="blog-post-meta">
-                <p className="blog-post-date">{selectedPost.date}<br/>{selectedPost.preview}</p> 
-                
-              </div>
-            </header>
-            
-            <div className="blog-post-content">
-              <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
-            </div>
-          </article>
+          <div className="no-posts">
+            <p>{error}</p>
+          </div>
         </div>
       </div>
     )
@@ -180,10 +144,10 @@ function Blog() {
         ) : (
           <div className="blog-posts-grid">
             {blogPosts.map((post) => (
-              <article 
-                key={post.slug} 
+              <article
+                key={post.slug}
                 className="blog-post-card"
-                onClick={() => handlePostClick(post)}
+                onClick={() => handlePostClick(post.slug)}
               >
                 <div className="blog-post-content">
                   <h2 className="blog-post-card-title">{post.title}</h2>
